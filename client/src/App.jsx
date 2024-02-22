@@ -13,7 +13,10 @@ import Products from "./component/Product/Products";
 import Search from "./component/Product/Search";
 import LoginSignUp from "./component/User/LoginSignUp";
 import Profile from "./component/User/Profile";
-
+import UpdateProfile from "./component/User/UpdateProfile";
+import UpdatePassword from "./component/User/UpdatePassword.jsx";
+import ForgotPassword from "./component/User/ForgotPassword.jsx";
+import ResetPassword from "./component/User/ResetPassword.jsx";
 function App() {
   useEffect(() => {
     store.dispatch(loadUser());
@@ -37,6 +40,30 @@ function App() {
               <Profile />
             </ProtectedRoute>
           }
+        />
+        <Route
+          exact
+          path="/me/update"
+          element={
+            <ProtectedRoute>
+              <UpdateProfile />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          exact
+          path="/password/update"
+          element={
+            <ProtectedRoute>
+              <UpdatePassword />
+            </ProtectedRoute>
+          }
+        />
+        <Route exact path="/password/forgot" element={<ForgotPassword />} />
+        <Route
+          exact
+          path="/password/reset/:token"
+          element={<ResetPassword />}
         />
       </Routes>
       <Footer />

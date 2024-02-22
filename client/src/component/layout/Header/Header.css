@@ -1,8 +1,8 @@
+/* Base styles */
 .logo {
   font-size: 18px;
   color: #1cc5cbf4;
   text-transform: uppercase;
-  font-family: initial;
   letter-spacing: 1px;
   text-align: center;
   position: relative;
@@ -22,13 +22,14 @@
 }
 
 .logo:hover::after {
-  background-color: #5b1dd7;
+  background-color: #7e4ae5;
 }
 
 .logo2 {
   vertical-align: middle;
   color: red;
 }
+
 .speedDial {
   position: fixed;
   right: -5vmax;
@@ -40,6 +41,28 @@
   height: 50px;
   border-radius: 100%;
 }
+
 .color:hover {
   color: rgb(17, 181, 210);
+}
+
+/* Responsive design for laptops */
+@media screen and (max-width: 1200px) {
+  .speedDial {
+    top: 5vmax;
+    right: -10vmax;
+  }
+}
+
+/* Responsive design for mobile/desktop */
+@media screen and (max-width: 900px) {
+  .speedDial {
+    top: 10px;
+    right: 10px;
+  }
+
+  .speedDialIcon {
+    width: 40px;
+    height: 40px;
+  }
 }

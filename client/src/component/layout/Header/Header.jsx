@@ -175,15 +175,19 @@ export default function Header() {
                   <Divider />
 
                   <MenuItem>
-                    <Button
-                      color="primary"
-                      variant="contained"
-                      component="a"
-                      href="/login"
-                      sx={{ width: "100%" }}
-                    >
-                      Sign in
-                    </Button>
+                    {user && isAuthenticated ? (
+                      <UserOptions user={user} />
+                    ) : (
+                      <Button
+                        color="primary"
+                        variant="contained"
+                        size="small"
+                        component="a"
+                        href="/login"
+                      >
+                        Sign in
+                      </Button>
+                    )}
                   </MenuItem>
                 </Box>
               </Drawer>
