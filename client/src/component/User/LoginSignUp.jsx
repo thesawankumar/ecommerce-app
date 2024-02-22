@@ -47,16 +47,16 @@ const LoginSignUp = () => {
     myForm.set("avatar", avatar);
     dispatch(register(myForm));
   };
-  // const redirect = location.search ? location.search.split("=")[1] : "/account";
+  const redirect = location.search ? location.search.split("=")[1] : "/account";
   useEffect(() => {
     if (error) {
       toast.error(error);
       dispatch(clearErrors());
     }
     if (isAuthenticated) {
-      navigate("/account");
+      navigate(redirect);
     }
-  }, [dispatch, error, isAuthenticated, navigate]);
+  }, [dispatch, error, isAuthenticated, navigate, redirect]);
 
   const registerDataChange = (e) => {
     if (e.target.name === "avatar") {

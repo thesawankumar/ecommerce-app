@@ -20,9 +20,20 @@ export default function UserOptions({ user }) {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { cartItems } = useSelector((state) => state.cart);
+
   const options = [
     { icon: <ListAlt />, name: "Orders", func: orders },
     { icon: <Person />, name: "Profile", func: account },
+    {
+      icon: (
+        <ShoppingCart
+          style={{ color: cartItems.length > 0 ? "tomato" : "unset" }}
+        />
+      ),
+      name: `Cart(${cartItems.length})`,
+      func: cart,
+    },
     { icon: <ExitToApp />, name: "Logout", func: logoutUser },
   ];
   if (user.role === "admin") {
@@ -40,6 +51,9 @@ export default function UserOptions({ user }) {
   }
   function account() {
     navigate("/account");
+  }
+  function cart() {
+    navigate("/cart");
   }
   function logoutUser() {
     dispatch(logout());

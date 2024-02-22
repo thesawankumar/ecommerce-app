@@ -17,6 +17,7 @@
     "@mui/material": "^5.15.10",
     "@reduxjs/toolkit": "^2.2.1",
     "axios": "^1.6.7",
+    "country-state-city": "^3.2.1",
     "overlay-navbar": "^1.2.3",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",

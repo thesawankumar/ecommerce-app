@@ -7,6 +7,7 @@ import {
   profileReducer,
   userReducer,
 } from "./reducers/user";
+import { cartReducer } from "./reducers/cart";
 
 const rootReducer = combineReducers({
   products: productsReducer,
@@ -14,7 +15,18 @@ const rootReducer = combineReducers({
   user: userReducer,
   profile: profileReducer,
   forgotPassword: forgotPasswordReducer,
+  cart: cartReducer,
 });
+let initialState = {
+  cart: {
+    cartItems: localStorage.getItem("cartItems")
+      ? JSON.parse(localStorage.getItem("cartItems"))
+      : [],
+    shippingInfo: localStorage.getItem("shippingInfo")
+      ? JSON.parse(localStorage.getItem("shippingInfo"))
+      : {},
+  },
+};
 
 const persistConfig = {
   key: "root",
@@ -24,6 +36,7 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 export const store = configureStore({
   reducer: persistedReducer,
+  initialState,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ serializableCheck: false }),
 });

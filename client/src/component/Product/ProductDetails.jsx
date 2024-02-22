@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
+
 import React, { Fragment, useEffect, useState } from "react";
 import Carousel from "react-material-ui-carousel";
 import "./ProductDetails.css";
@@ -10,6 +11,8 @@ import MetaData from "../layout/MetaData";
 import { Rating } from "@material-ui/lab";
 import ReviewCard from "./ReviewCard";
 import toast from "react-hot-toast";
+import { addItemsToCart } from "../../actions/cart";
+
 import {
   Dialog,
   DialogActions,
@@ -21,15 +24,32 @@ import Loader from "../layout/Loader/Loader";
 export default function ProductDetails() {
   const dispatch = useDispatch();
   const { id } = useParams();
+  const [quantity, setQuantity] = useState(1);
 
   const { product, loading, error } = useSelector(
     (state) => state.productDetails
   );
+  const increaseQuantity = () => {
+    if (product.Stock <= quantity) return;
+
+    const qty = quantity + 1;
+    setQuantity(qty);
+  };
+  const decreaseQuantity = () => {
+    if (1 >= quantity) return;
+
+    const qty = quantity - 1;
+    setQuantity(qty);
+  };
   const options = {
     size: "large",
     value: product.ratings,
     readOnly: true,
     precision: 0.5,
+  };
+  const addToCartHandler = () => {
+    dispatch(addItemsToCart(id, quantity));
+    toast.success("Item Added To Cart");
   };
   useEffect(() => {
     if (error) {
@@ -47,7 +67,7 @@ export default function ProductDetails() {
     //   dispatch({ type: NEW_REVIEW_RESET });
     // }
     dispatch(getProductDetails(id));
-  }, [dispatch, id, error,toast]);
+  }, [dispatch, id, error, toast]);
 
   return (
     <Fragment>
@@ -86,11 +106,14 @@ export default function ProductDetails() {
                 <h1>{`₹${product.price}`}</h1>
                 <div className="detailsBlock-3-1">
                   <div className="detailsBlock-3-1-1">
-                    <button>-</button>
-                    <input readOnly type="number" value="1" />
-                    <button>+</button>
+                    <button onClick={decreaseQuantity}>-</button>
+                    <input readOnly type="number" value={quantity} />
+                    <button onClick={increaseQuantity}>+</button>
                   </div>
-                  <button disabled={product.Stock < 1 ? true : false}>
+                  <button
+                    disabled={product.Stock < 1 ? true : false}
+                    onClick={addToCartHandler}
+                  >
                     Add to Cart
                   </button>
                 </div>
