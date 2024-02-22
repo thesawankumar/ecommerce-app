@@ -1,7 +1,11 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { productDetailsReducer, productsReducer } from "./reducers/product";
+import {
+  newReviewReducer,
+  productDetailsReducer,
+  productsReducer,
+} from "./reducers/product";
 import {
   forgotPasswordReducer,
   profileReducer,
@@ -24,6 +28,7 @@ const rootReducer = combineReducers({
   newOrder: newOrderReducer,
   myOrders: myOrdersReducer,
   orderDetails: orderDetailsReducer,
+  newReview: newReviewReducer,
 });
 let initialState = {
   cart: {
