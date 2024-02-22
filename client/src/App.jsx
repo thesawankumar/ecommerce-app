@@ -1,8 +1,9 @@
+/* eslint-disable no-unused-vars */
 import "./App.css";
-
+import axios from "axios";
 import { store } from "./store";
 import { loadUser } from "./actions/user";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Header from "./component/layout/Header/Header";
 import Footer from "./component/layout/Footer/Footer";
 import ProtectedRoute from "./component/Route/ProtectedRoute";
@@ -20,9 +21,21 @@ import ResetPassword from "./component/User/ResetPassword";
 import Cart from "./component/Cart/Cart";
 import Shipping from "./component/Cart/Shipping";
 import ConfirmOrder from "./component/Cart/ConfirmOrder";
+import Payment from "./component/Cart/Payment";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 function App() {
+  const [stripeApiKey, setStripeApiKey] = useState("");
+
+  async function getStripeApiKey() {
+    const { data } = await axios.get(`/api/v1/stripeapikey`);
+
+    setStripeApiKey(data.stripeApiKey);
+  }
+
   useEffect(() => {
     store.dispatch(loadUser());
+    getStripeApiKey();
   }, []);
   return (
     <Router>
@@ -85,6 +98,19 @@ function App() {
             <ProtectedRoute>
               <ConfirmOrder />
             </ProtectedRoute>
+          }
+        />
+        <Route
+          exact
+          path="/process/payment"
+          element={
+            stripeApiKey && (
+              <Elements stripe={loadStripe(stripeApiKey)}>
+                <ProtectedRoute>
+                  <Payment />
+                </ProtectedRoute>
+              </Elements>
+            )
           }
         />
       </Routes>
