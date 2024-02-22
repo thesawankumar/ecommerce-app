@@ -17,7 +17,7 @@ import CheckoutSteps from "../Cart/CheckoutSteps";
 export default function Shipping() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const {shippingInfo }= useSelector((state) => state.cart);
+  const { shippingInfo } = useSelector((state) => state.cart);
 
   const [address, setAddress] = useState(shippingInfo.address);
   const [city, setCity] = useState(shippingInfo.city);
@@ -41,7 +41,7 @@ export default function Shipping() {
   return (
     <Fragment>
       <MetaData title="Shipping Details" />
-      <CheckoutSteps activeStep={0} />
+      <CheckoutSteps activeStep={0} className="check"/>
       <div className="shippingContainer">
         <div className="shippingBox">
           <h2 className="shippingHeading">Shipping Details</h2>

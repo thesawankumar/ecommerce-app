@@ -18,6 +18,8 @@ import Event from "@mui/icons-material/Event";
 import VpnKey from "@mui/icons-material/VpnKey";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { clearErrors, createOrder } from "../../actions/order";
+
 export default function Payment() {
   const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
   const dispatch = useDispatch();
@@ -27,6 +29,7 @@ export default function Payment() {
   const navigate = useNavigate();
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.user);
+  const { error } = useSelector((state) => state.newOrder);
   const paymentData = {
     amount: Math.round(orderInfo.totalPrice * 100),
   };
@@ -86,7 +89,7 @@ export default function Payment() {
             id: result.paymentIntent.id,
             status: result.paymentIntent.status,
           };
-          //   dispatch(createOrder(order));
+          dispatch(createOrder(order));
           navigate("/success");
         } else {
           toast.error("There's some issue while processing payment ");
@@ -97,6 +100,13 @@ export default function Payment() {
       toast.error(error.response.data.message);
     }
   };
+  useEffect(() => {
+    if (error) {
+      toast.error(error);
+      dispatch(clearErrors());
+    }
+  }, [dispatch, error]);
+
   return (
     <Fragment>
       <MetaData title="Payment" />
