@@ -1,0 +1,88 @@
+.contactContainer {
+  min-height: 40vh;
+  display: grid;
+  place-items: center;
+  justify-content: center;
+  align-items: center;
+  background-color: aquamarine;
+  margin: 0 15vmax;
+  margin-top: 120px;
+  padding: 2vmax;
+  border-radius: 100px;
+  margin-bottom: 10px;
+}
+
+.box {
+  margin: 1vmax;
+}
+
+.boxHeader {
+  text-decoration: none;
+  font: 500 22px "Roboto";
+  color: black;
+  padding: 1vmax;
+  border-radius: 30px;
+  text-align: center;
+}
+
+.emailBox,
+.followBox,
+.addressBox {
+  text-align: center;
+}
+
+.addressBox {
+  font-size: 20px;
+}
+.emailBox > .mailBtn {
+  text-decoration: none;
+}
+
+.emailBox > .mailBtn > button {
+  text-decoration: none;
+  font: 600 15px "Roboto";
+  color: black;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 30px;
+  background: navajowhite;
+}
+
+
+
+.followBox > a > svg {
+  font-size: 30px;
+  margin: 1vmax 1vmax 1vmax 1vmax;
+}
+
+.followBox > a :hover {
+  color: whitesmoke;
+}
+
+.instagramSvgIcon {
+  color: rgb(241, 36, 0);
+}
+
+.instagramSvgIcon {
+  color: #833ab4;
+}
+
+.facebookSvgIcon {
+  color: #0076c5;
+}
+
+.twitterSvgIcon {
+  color: #009cda;
+}
+
+@media screen and (max-width: 600px) {
+  .contactContainer {
+    margin: 0 2vmax;
+    margin-top: 100px;
+    border-radius: 5px;
+  }
+
+  .emailBox > .mailBtn > button {
+    font: 500 3vmax "Roboto";
+  }
+}

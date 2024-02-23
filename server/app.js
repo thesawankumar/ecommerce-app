@@ -11,7 +11,9 @@ const payment = require("./routes/payment");
 const errorMiddleware = require("./middleware/error");
 
 dotenv.config({ path: "server/.env" });
+
 app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(fileUpload());
 app.use(express.json());
 app.use(cookieParser());
@@ -21,4 +23,5 @@ app.use("/api/v1", order);
 app.use("/api/v1", payment);
 
 app.use(errorMiddleware);
+
 module.exports = app;

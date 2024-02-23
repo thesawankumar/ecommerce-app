@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+
 import "./App.css";
 import axios from "axios";
 import { store } from "./store";
@@ -35,7 +36,10 @@ import OrderList from "./component/Admin/OrderList";
 import ProcessOrder from "./component/Admin/ProcessOrder";
 import UserList from "./component/Admin/UserList";
 import UpdateUser from "./component/Admin/UpdateUser";
-import ProductReview from "./component/Admin/ProductReview.jsx";
+import ProductReview from "./component/Admin/ProductReview";
+import About from "./component/layout/About/About";
+import Contact from "./component/layout/Contact/Contact";
+import NotFound from "./component/layout/NotFound/NotFound";
 function App() {
   const [stripeApiKey, setStripeApiKey] = useState("");
 
@@ -52,9 +56,17 @@ function App() {
   return (
     <Router>
       <Header />
-
       <Routes>
         <Route exact path="/" element={<Home />} />
+        <Route exact path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route
+          element={
+            window.location.pathname === "/process/payment" ? null : (
+              <NotFound />
+            )
+          }
+        />
         <Route exact path="/product/:id" element={<ProductDetails />} />
         <Route exact path="/products" element={<Products />} />
         <Route path="/products/:keyword" element={<Products />} />
