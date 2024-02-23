@@ -13,7 +13,7 @@ const OrderDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
-  console.log(id);
+  // console.log(id);
   useEffect(() => {
     if (error) {
       toast.error(error);

@@ -23,7 +23,7 @@
   font: 300 1.4vmax "Lucida Sans";
 }
 
-.banner > a > button {
+.banner > Link > button {
   margin-bottom: 5vmax;
   cursor: pointer;
   background-color: white;
@@ -34,7 +34,7 @@
   width: 9vmax;
   font: 500 1vmax "Roboto";
 }
-.banner > a > button:hover {
+.banner > Link > button:hover {
   background-color: rgba(255, 255, 255, 0);
   color: white;
 }
@@ -65,7 +65,7 @@
 .container {
   display: flex;
   margin: 1vmax auto;
-  width: 80vw;
+  width: 84vw;
   flex-wrap: wrap;
   justify-content: center;
   max-width: 100%;
@@ -78,13 +78,13 @@
   flex-direction: column;
   text-decoration: none;
   color: rgb(17, 6, 6);
-  margin: 2vmax;
+  margin: 1vmax;
   transition: all 0.5s;
   padding-bottom: 0.5vmax;
 }
 
 .productCard > img {
-  width: 14vmax;
+  width: 12vmax;
 }
 
 .productCard > div {

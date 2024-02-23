@@ -31,7 +31,9 @@ export default function Products() {
   const [ratings, setRatings] = useState(0);
   const { products, loading, error, productsCount, resultPerPage } =
     useSelector((state) => state.products);
+    
   const { keyword } = useParams();
+
   const handlePageChange = (event, page) => {
     setCurrentPage(page);
   };

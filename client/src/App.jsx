@@ -27,6 +27,15 @@ import { loadStripe } from "@stripe/stripe-js";
 import OrderSuccess from "./component/Cart/OrderSuccess";
 import MyOrders from "./component/Order/MyOrders";
 import OrderDetails from "./component/Order/OrderDetails";
+import Dashboard from "./component/Admin/Dashboard";
+import ProductList from "./component/Admin/ProductList";
+import NewProduct from "./component/Admin/NewProduct";
+import UpdateProduct from "./component/Admin/UpdateProduct";
+import OrderList from "./component/Admin/OrderList";
+import ProcessOrder from "./component/Admin/ProcessOrder";
+import UserList from "./component/Admin/UserList";
+import UpdateUser from "./component/Admin/UpdateUser";
+import ProductReview from "./component/Admin/ProductReview.jsx";
 function App() {
   const [stripeApiKey, setStripeApiKey] = useState("");
 
@@ -139,6 +148,87 @@ function App() {
           element={
             <ProtectedRoute>
               <OrderDetails />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          isAdmin={true}
+          path="/admin/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          isAdmin={true}
+          path="/admin/products"
+          element={
+            <ProtectedRoute>
+              <ProductList />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          isAdmin={true}
+          path="/admin/product"
+          element={
+            <ProtectedRoute>
+              <NewProduct />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          isAdmin={true}
+          path="/admin/product/:id"
+          element={
+            <ProtectedRoute>
+              <UpdateProduct />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          isAdmin={true}
+          path="/admin/orders"
+          element={
+            <ProtectedRoute>
+              <OrderList />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          isAdmin={true}
+          path="/admin/order/:id"
+          element={
+            <ProtectedRoute>
+              <ProcessOrder />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          isAdmin={true}
+          path="/admin/users"
+          element={
+            <ProtectedRoute>
+              <UserList />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          isAdmin={true}
+          path="/admin/user/:id"
+          element={
+            <ProtectedRoute>
+              <UpdateUser />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          isAdmin={true}
+          path="/admin/reviews"
+          element={
+            <ProtectedRoute>
+              <ProductReview />
             </ProtectedRoute>
           }
         />

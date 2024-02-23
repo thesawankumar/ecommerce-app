@@ -68,34 +68,35 @@ export default function Header() {
                 px: 0,
               }}
             >
+              
               <Link className="logo" to="/">
                 <CiShop size={25} className="logo2" />
                 eccommerce
               </Link>
               <Box sx={{ display: { xs: "none", md: "flex" } }}>
                 <Link to="/">
-                  <MenuItem sx={{ py: "6px", px: "12px" }}>
+                  <MenuItem sx={{ py: "5px", px: "20px" }}>
                     <Typography variant="body2" color="text.primary">
                       Home
                     </Typography>
                   </MenuItem>
                 </Link>
                 <Link to="/products">
-                  <MenuItem sx={{ py: "6px", px: "12px" }}>
+                  <MenuItem sx={{ py: "6px", px: "20px" }}>
                     <Typography variant="body2" color="text.primary">
                       Products
                     </Typography>
                   </MenuItem>
                 </Link>
                 <Link to="/about">
-                  <MenuItem sx={{ py: "6px", px: "12px" }}>
+                  <MenuItem sx={{ py: "6px", px: "20px" }}>
                     <Typography variant="body2" color="text.primary">
                       About
                     </Typography>
                   </MenuItem>
                 </Link>
                 <Link to="/contact">
-                  <MenuItem sx={{ py: "6px", px: "12px" }}>
+                  <MenuItem sx={{ py: "6px", px: "20px" }}>
                     <Typography variant="body2" color="text.primary">
                       Contact
                     </Typography>

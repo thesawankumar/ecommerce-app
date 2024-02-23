@@ -8,6 +8,7 @@ import { clearErrors, getProduct } from "../../actions/product";
 import { useSelector, useDispatch } from "react-redux";
 import Loader from "../layout/Loader/Loader";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -32,11 +33,11 @@ export default function Home() {
             <p>Welcome to Ecommerce</p>
             <h1>FIND AMAZING PRODUCTS BELOW</h1>
 
-            <a href="#container">
+            <Link href="#container">
               <button>
                 Scroll <CgMouse />
               </button>
-            </a>
+            </Link>
           </div>
 
           <h2 className="homeHeading">Featured Products</h2>
