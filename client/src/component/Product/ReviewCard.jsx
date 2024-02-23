@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import { Rating } from "@material-ui/lab";
+import Rating from "@mui/material/Rating";
 
 import profilePng from "../../images/Profile.png";
 

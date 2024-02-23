@@ -12,21 +12,18 @@ import {
   newReview,
 } from "../../actions/product";
 import MetaData from "../layout/MetaData";
-import { Rating } from "@material-ui/lab";
+import Rating from "@mui/material/Rating";
 import ReviewCard from "./ReviewCard";
 import toast from "react-hot-toast";
 import { addItemsToCart } from "../../actions/cart";
 import { NEW_REVIEW_RESET } from "../../constants/product";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import DialogActions from "@mui/material/DialogActions";
+import Button from "@mui/material/Button";
 
-import {
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
-  Button,
-} from "@material-ui/core";
 import Loader from "../layout/Loader/Loader";
-
 
 export default function ProductDetails() {
   const dispatch = useDispatch();

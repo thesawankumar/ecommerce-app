@@ -9,8 +9,8 @@ import ProductCard from "../Home/ProductCard";
 import MetaData from "../layout/MetaData";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
-import Slider from "@material-ui/core/Slider";
-import Typography from "@material-ui/core/Typography";
+import Slider from "@mui/material/Slider";
+import Typography from "@mui/material/Typography";
 import toast from "react-hot-toast";
 const categories = [
   "Laptop",
@@ -31,7 +31,6 @@ export default function Products() {
   const [ratings, setRatings] = useState(0);
   const { products, loading, error, productsCount, resultPerPage } =
     useSelector((state) => state.products);
-    
   const { keyword } = useParams();
 
   const handlePageChange = (event, page) => {

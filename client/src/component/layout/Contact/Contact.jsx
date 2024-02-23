@@ -1,5 +1,5 @@
 import "./Contact.css";
-import { Button } from "@material-ui/core";
+import Button from "@mui/material/Button";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";

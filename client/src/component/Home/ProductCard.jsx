@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 
 import { Link } from "react-router-dom";
-import { Rating } from "@material-ui/lab";
+import Rating from '@mui/material/Rating';
+
 
 const ProductCard = ({ product }) => {
   const options = {
