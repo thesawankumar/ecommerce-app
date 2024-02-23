@@ -21,7 +21,7 @@ const PORT = process.env.PORT || 5000;
 
 connect();
 
-const __dirname = path.resolve();
+// const __dirname = path.resolve();
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_NAME,
