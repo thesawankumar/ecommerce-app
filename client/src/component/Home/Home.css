@@ -23,7 +23,7 @@
   font: 300 1.4vmax "Lucida Sans";
 }
 
-.banner > Link > button {
+.banner > a > button {
   margin-bottom: 5vmax;
   cursor: pointer;
   background-color: white;

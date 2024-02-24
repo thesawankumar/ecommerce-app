@@ -33,11 +33,11 @@ export default function Home() {
             <p>Welcome to Ecommerce</p>
             <h1>FIND AMAZING PRODUCTS BELOW</h1>
 
-            <Link href="#container">
+            <a href="#container">
               <button>
                 Scroll <CgMouse />
               </button>
-            </Link>
+            </a>
           </div>
 
           <h2 className="homeHeading">Featured Products</h2>
