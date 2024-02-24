@@ -12,10 +12,7 @@ process.on("uncaughtException", (err) => {
   process.exit(1);
 });
 
-//CONFIG
-// if (process.env.NODE_ENV !== "PRODUCTION") {
-//   require("dotenv").config({ path: "server/.env" });
-// }
+
 dotenv.config({ path: "server/.env" });
 const PORT = process.env.PORT || 5000;
 
@@ -33,11 +30,11 @@ app.listen(PORT, () => {
   console.log(`Server start at ${PORT}`);
 });
 
-app.use(express.static(path.join(__dirname, "/client/dist")));
+// app.use(express.static(path.join(__dirname, "/client/dist")));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
+// });
 // Unhandled Promise Rejection
 process.on("unhandledRejection", (err) => {
   console.log(`Error: ${err.message}`);

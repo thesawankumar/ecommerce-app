@@ -198,10 +198,12 @@ exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
 });
 // update User Profile
 exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
+  // console.log("in update")
   const newUserData = {
     name: req.body.name,
     email: req.body.email,
   };
+  console.log(req.body.name);
 
   if (req.body.avatar !== "") {
     const user = await User.findById(req.user.id);
@@ -230,6 +232,7 @@ exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
+    data: user,
   });
 });
 

@@ -1,6 +1,6 @@
 import { Fragment, useState, useEffect } from "react";
 import "./UpdateProfile.css";
-import Loader from "../layout/Loader/Loader";
+// import Loader from "../layout/Loader/Loader";
 import MailOutline from "@mui/icons-material/MailOutline";
 import Face from "@mui/icons-material/Face";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,7 +16,7 @@ const UpdateProfile = () => {
   const navigate = useNavigate();
 
   const { user } = useSelector((state) => state.user);
-  const { error, isUpdated, loading } = useSelector((state) => state.profile);
+  const { error, isUpdated, } = useSelector((state) => state.profile);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -68,66 +68,57 @@ const UpdateProfile = () => {
         type: UPDATE_PROFILE_RESET,
       });
     }
-  }, [dispatch, error, navigate, user,isUpdated]);
+  }, [dispatch, error, navigate, user, isUpdated]);
   return (
     <Fragment>
-      {loading ? (
-        <Loader />
-      ) : (
-        <Fragment>
-          <MetaData title="Update Profile" />
-          <div className="updateProfileContainer">
-            <div className="updateProfileBox">
-              <h2 className="updateProfileHeading">Update Profile</h2>
+      <MetaData title="Update Profile" />
+      <div className="updateProfileContainer">
+        <div className="updateProfileBox">
+          <h2 className="updateProfileHeading">Update Profile</h2>
 
-              <form
-                className="updateProfileForm"
-                encType="multipart/form-data"
-                onSubmit={updateProfileSubmit}
-              >
-                <div className="updateProfileName">
-                  <Face />
-                  <input
-                    type="text"
-                    placeholder="Name"
-                    required
-                    name="name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                </div>
-                <div className="updateProfileEmail">
-                  <MailOutline />
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    required
-                    name="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </div>
-
-                <div id="updateProfileImage">
-                  <img src={avatarPreview} alt="Avatar Preview" />
-                  <input
-                    type="file"
-                    name="avatar"
-                    accept="image/*"
-                    onChange={updateProfileDataChange}
-                  />
-                </div>
-                <input
-                  type="submit"
-                  value="Update"
-                  className="updateProfileBtn"
-                />
-              </form>
+          <form
+            className="updateProfileForm"
+            encType="multipart/form-data"
+            onSubmit={updateProfileSubmit}
+          >
+            <div className="updateProfileName">
+              <Face />
+              <input
+                type="text"
+                placeholder="Name"
+                required
+                name="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
             </div>
-          </div>
-        </Fragment>
-      )}
+            <div className="updateProfileEmail">
+              <MailOutline />
+              <input
+                type="email"
+                placeholder="Email"
+                required
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+
+            <div id="updateProfileImage">
+              <img src={avatarPreview} alt="Avatar Preview" />
+              <input
+                type="file"
+                name="avatar"
+                accept="image/*"
+                onChange={updateProfileDataChange}
+              />
+            </div>
+            <input type="submit" value="Update" className="updateProfileBtn" />
+          </form>
+        </div>
+      </div>
     </Fragment>
+  
   );
 };
 
